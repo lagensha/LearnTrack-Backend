@@ -29,9 +29,9 @@ public class StudentController {
         studentService.deleteStudent(id);
     }
 
-
-    public StudentDto searchByID(String studentId) {
-        return null;
+@GetMapping("/search/{id}")
+    public StudentDto searchByID(@PathVariable Long id) {
+        return studentService.searchByID(id);
     }
 
 

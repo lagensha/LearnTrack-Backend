@@ -8,6 +8,6 @@ public interface StudentService {
     void addStudent(StudentDto studentDto);
     void updateStudent(StudentDto studentDto);
     void deleteStudent(Long id);
-    StudentDto searchByID(String studentId);
+    StudentDto searchByID(Long id);
     List<StudentDto> getAll();
 }

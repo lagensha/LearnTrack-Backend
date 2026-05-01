@@ -34,8 +34,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StudentDto searchByID(String studentId) {
-        return null;
+    public StudentDto searchByID(Long id) {
+        StudentEntity studentEntity = studentRepository.findById(id).get();
+        StudentDto studentDto = modelMapper.map(studentEntity, StudentDto.class);
+        return studentDto;
     }
 
     @Override
