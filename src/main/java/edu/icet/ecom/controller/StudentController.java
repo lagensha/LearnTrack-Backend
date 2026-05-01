@@ -3,9 +3,7 @@ package edu.icet.ecom.controller;
 import edu.icet.ecom.dto.StudentDto;
 import edu.icet.ecom.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,13 +15,13 @@ public class StudentController {
     final StudentService studentService;
 
     @PostMapping("/add")
-    public void addStudent(StudentDto studentDto) {
+    public void addStudent(@RequestBody StudentDto studentDto) {
         studentService.addStudent(studentDto);
     }
 
-
-    public void updateStudent(StudentDto studentDto) {
-
+    @PutMapping("/update")
+    public void updateStudent(@RequestBody StudentDto studentDto) {
+        studentService.updateStudent(studentDto);
     }
 
 
