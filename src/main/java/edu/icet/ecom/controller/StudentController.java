@@ -34,8 +34,8 @@ public class StudentController {
         return studentService.searchByID(id);
     }
 
-
+@GetMapping("/getAll")
     public List<StudentDto> getAll() {
-        return List.of();
+       return studentService.getAll();
     }
 }

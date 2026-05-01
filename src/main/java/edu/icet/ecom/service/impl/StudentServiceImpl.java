@@ -7,6 +7,8 @@ import edu.icet.ecom.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -42,6 +44,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<StudentDto> getAll() {
-        return List.of();
+         List<StudentEntity> studentEntities = studentRepository.findAll();
+        ArrayList<StudentDto> studentDtos = new ArrayList<>();
+        studentEntities.forEach(studentEntity -> {
+            StudentDto studentDto = modelMapper.map(studentEntity, StudentDto.class);
+            studentDtos.add(studentDto);
+        });
+        return studentDtos;
     }
 }
