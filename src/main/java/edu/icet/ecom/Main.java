@@ -1,10 +1,12 @@
 package edu.icet.ecom;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
-
+@SpringBootApplication
 public class Main {
-    public static void main(MysqlxDatatypes.Scalar.String[] args) {
-
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class,args);
+        System.out.println("Server Started");
     }
 }
