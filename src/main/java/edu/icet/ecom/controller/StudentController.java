@@ -24,9 +24,9 @@ public class StudentController {
         studentService.updateStudent(studentDto);
     }
 
-
-    public void deleteStudent(String studentId) {
-
+@DeleteMapping("/delete/{id}")
+    public void deleteStudent(@PathVariable Long id) {
+        studentService.deleteStudent(id);
     }
 
 
