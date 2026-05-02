@@ -35,7 +35,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseDto searchByID(Long id) {
-        CourseEntity courseEntity =courseRepository.findById(id).get();
+      CourseEntity courseEntity = courseRepository.findById(id).get();
         CourseDto courseDto = modelMapper.map(courseEntity, CourseDto.class);
         return courseDto;
     }

@@ -30,9 +30,9 @@ public class CourseController{
         courseService.deleteCourse(id);
     }
 
-
-    public CourseDto searchByID(Long id) {
-        return null;
+@GetMapping("/search/{id}")
+    public CourseDto searchByID(@PathVariable Long id) {
+        return courseService.searchByID(id);
     }
 
 
