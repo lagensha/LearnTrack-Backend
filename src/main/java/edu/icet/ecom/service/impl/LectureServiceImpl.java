@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @RequiredArgsConstructor
 @Service
@@ -34,6 +36,13 @@ public class LectureServiceImpl implements LecturesService {
 
     @Override
     public LecturesDto searchByID(Long id) {
-        return null;
+        LecturesEntity lecturesEntity = lecturesRepository.findById(id).get();
+        LecturesDto lecturesDto = modelMapper.map(lecturesEntity, LecturesDto.class);
+        return lecturesDto;
+    }
+
+    @Override
+    public List<LecturesDto> getAll() {
+        return List.of();
     }
 }

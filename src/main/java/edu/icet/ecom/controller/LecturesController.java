@@ -5,6 +5,8 @@ import edu.icet.ecom.service.LecturesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/lectures")
 @RequiredArgsConstructor
@@ -29,6 +31,10 @@ public class LecturesController  {
 
 
     public LecturesDto searchByID(Long id) {
+        return null;
+    }
+
+    public List<LecturesDto> getAll() {
         return null;
     }
 }
