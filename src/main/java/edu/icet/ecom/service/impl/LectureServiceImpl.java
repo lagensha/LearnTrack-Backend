@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -43,6 +44,13 @@ public class LectureServiceImpl implements LecturesService {
 
     @Override
     public List<LecturesDto> getAll() {
-        return List.of();
+      List<LecturesEntity>lecturesEntities=lecturesRepository.findAll();
+        ArrayList<LecturesDto>lecturesDtos=new ArrayList<>();
+        lecturesEntities.forEach(lecturesEntity -> {
+            LecturesDto lecturesDto = modelMapper.map(lecturesEntity, LecturesDto.class);
+            lecturesDtos.add(lecturesDto);
+        });
+        return lecturesDtos;
+        }
     }
-}
+
