@@ -3,10 +3,7 @@ package edu.icet.ecom.controller;
 import edu.icet.ecom.dto.LecturesDto;
 import edu.icet.ecom.service.LecturesService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/lectures")
@@ -20,9 +17,9 @@ public class LecturesController  {
         lecturesService.addLecture(lecturesDto);
     }
 
-
-    public void updateLecture(LecturesDto lecturesDto) {
-
+@PutMapping("/update")
+    public void updateLecture(@RequestBody LecturesDto lecturesDto) {
+        lecturesService.updateLecture(lecturesDto);
     }
 
 
