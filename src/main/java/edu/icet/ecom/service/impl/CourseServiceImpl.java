@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -16,6 +17,7 @@ public class CourseServiceImpl implements CourseService {
 
     final CourseRepository courseRepository;
     final ModelMapper modelMapper;
+
     @Override
     public void addCourse(CourseDto courseDto) {
         CourseEntity courseEntity = modelMapper.map(courseDto, CourseEntity.class);
@@ -35,13 +37,20 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseDto searchByID(Long id) {
-      CourseEntity courseEntity = courseRepository.findById(id).get();
+        CourseEntity courseEntity = courseRepository.findById(id).get();
         CourseDto courseDto = modelMapper.map(courseEntity, CourseDto.class);
         return courseDto;
     }
 
     @Override
     public List<CourseDto> getAll() {
-        return List.of();
+        List<CourseEntity> courseEntities = courseRepository.findAll();
+        ArrayList<CourseDto> courseDtos = new ArrayList<>();
+        courseEntities.forEach(courseEntity -> {
+            CourseDto courseDto = modelMapper.map(courseEntity, CourseDto.class);
+            courseDtos.add(courseDto);
+        });
+        return courseDtos;
     }
+        
 }

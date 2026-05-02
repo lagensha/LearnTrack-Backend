@@ -35,8 +35,8 @@ public class CourseController{
         return courseService.searchByID(id);
     }
 
-
+@GetMapping("/getAll")
     public List<CourseDto> getAll() {
-        return List.of();
+        return courseService.getAll();
     }
 }
