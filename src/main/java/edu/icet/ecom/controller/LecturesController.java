@@ -25,13 +25,13 @@ public class LecturesController  {
     }
 
 @DeleteMapping("/delete/{id}")
-    public void deleteLecture(Long id) {
+    public void deleteLecture( @PathVariable Long id) {
         lecturesService.deleteLecture(id);
     }
 
-
-    public LecturesDto searchByID(Long id) {
-        return null;
+@GetMapping("/search/{id}")
+    public LecturesDto searchByID(@PathVariable Long id) {
+      return lecturesService.searchByID(id);
     }
 
     public List<LecturesDto> getAll() {
