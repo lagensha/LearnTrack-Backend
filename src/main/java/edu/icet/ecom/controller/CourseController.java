@@ -21,13 +21,13 @@ public class CourseController{
     }
 
 @PutMapping("/update")
-    public void updateCourse(CourseDto courseDto) {
+    public void updateCourse(@RequestBody CourseDto courseDto) {
         courseService.updateCourse(courseDto);
     }
 
-
-    public void deleteCourse(Long id) {
-
+@DeleteMapping("/delete/{id}")
+    public void deleteCourse(@PathVariable Long id) {
+        courseService.deleteCourse(id);
     }
 
 

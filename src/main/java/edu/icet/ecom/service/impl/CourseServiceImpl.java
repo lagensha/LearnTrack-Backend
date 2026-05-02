@@ -30,12 +30,14 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void deleteCourse(Long id) {
-
+        courseRepository.deleteById(id);
     }
 
     @Override
     public CourseDto searchByID(Long id) {
-        return null;
+        CourseEntity courseEntity =courseRepository.findById(id).get();
+        CourseDto courseDto = modelMapper.map(courseEntity, CourseDto.class);
+        return courseDto;
     }
 
     @Override
