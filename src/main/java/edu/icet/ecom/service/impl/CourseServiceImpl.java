@@ -24,7 +24,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void updateCourse(CourseDto courseDto) {
-
+        CourseEntity courseEntity = modelMapper.map(courseDto, CourseEntity.class);
+        courseRepository.save(courseEntity);
     }
 
     @Override
