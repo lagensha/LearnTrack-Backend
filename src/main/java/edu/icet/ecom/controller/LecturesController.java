@@ -22,9 +22,9 @@ public class LecturesController  {
         lecturesService.updateLecture(lecturesDto);
     }
 
-
+@DeleteMapping("/delete/{id}")
     public void deleteLecture(Long id) {
-
+        lecturesService.deleteLecture(id);
     }
 
 
