@@ -23,7 +23,8 @@ public class LectureServiceImpl implements LecturesService {
 
     @Override
     public void updateLecture(LecturesDto lecturesDto) {
-
+        LecturesEntity lecturesEntity = modelMapper.map(lecturesDto,LecturesEntity.class);
+        lecturesRepository.save(lecturesEntity);
     }
 
     @Override
