@@ -29,7 +29,7 @@ public class LectureServiceImpl implements LecturesService {
 
     @Override
     public void deleteLecture(Long id) {
-
+        lecturesRepository.deleteById(id);
     }
 
     @Override
