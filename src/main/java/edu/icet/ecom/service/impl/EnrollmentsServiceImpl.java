@@ -31,7 +31,7 @@ public class EnrollmentsServiceImpl implements EnrollmentsService {
 
     @Override
     public void deleteEnrollment(Long id) {
-
+        enrollmentsRepository.deleteById(id);
     }
 
     @Override
