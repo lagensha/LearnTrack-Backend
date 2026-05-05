@@ -1,4 +1,45 @@
 package edu.icet.ecom.service.impl;
 
-public class EnrollmentsServiceImpl {
+import edu.icet.ecom.dto.EnrollmentsDto;
+import edu.icet.ecom.entity.EnrollmentsEntity;
+import edu.icet.ecom.repository.EnrollmentsRepository;
+import edu.icet.ecom.service.EnrollmentsService;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@RequiredArgsConstructor
+@Service
+public class EnrollmentsServiceImpl implements EnrollmentsService {
+
+    final  EnrollmentsRepository enrollmentsRepository;
+    final ModelMapper modelMapper;
+
+    @Override
+    public void addEnrollment(EnrollmentsDto enrollmentsDto) {
+        EnrollmentsEntity enrollmentsEntity = modelMapper.map(enrollmentsDto, EnrollmentsEntity.class);
+        enrollmentsRepository.save(enrollmentsEntity);
+    }
+
+    @Override
+    public void updateEnrollment(EnrollmentsDto enrollmentsDto) {
+
+    }
+
+    @Override
+    public void deleteEnrollment(Long id) {
+
+    }
+
+    @Override
+    public EnrollmentsDto searchByID(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<EnrollmentsDto> getAll() {
+        return List.of();
+    }
 }
