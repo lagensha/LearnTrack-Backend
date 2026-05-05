@@ -3,6 +3,8 @@ package edu.icet.ecom.controller;
 import edu.icet.ecom.dto.EnrollmentsDto;
 import edu.icet.ecom.service.EnrollmentsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +18,8 @@ public class EnrollmentsController {
 
     final private EnrollmentsService enrollmentsService;
 
-    public void addEnrollment(EnrollmentsDto enrollmentsDto) {
+    @PostMapping("/add")
+    public void addEnrollment(@RequestBody EnrollmentsDto enrollmentsDto) {
         enrollmentsService.addEnrollment(enrollmentsDto);
     }
 
