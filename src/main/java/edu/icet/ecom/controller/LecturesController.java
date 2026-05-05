@@ -33,8 +33,8 @@ public class LecturesController  {
     public LecturesDto searchByID(@PathVariable Long id) {
       return lecturesService.searchByID(id);
     }
-
+@GetMapping("/getAll")
     public List<LecturesDto> getAll() {
-        return null;
+        return lecturesService.getAll();
     }
 }
