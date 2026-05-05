@@ -25,7 +25,8 @@ public class EnrollmentsServiceImpl implements EnrollmentsService {
 
     @Override
     public void updateEnrollment(EnrollmentsDto enrollmentsDto) {
-
+        EnrollmentsEntity enrollmentsEntity = modelMapper.map(enrollmentsDto, EnrollmentsEntity.class);
+        enrollmentsRepository.save(enrollmentsEntity);
     }
 
     @Override
