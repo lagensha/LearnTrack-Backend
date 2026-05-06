@@ -35,8 +35,8 @@ public class EnrollmentsController {
         return enrollmentsService.searchByID(id);
     }
 
-
+@GetMapping("/getAll")
     public List<EnrollmentsDto> getAll() {
-        return null;
+       return enrollmentsService.getAll();
     }
 }
