@@ -25,9 +25,9 @@ public class CertificateController{
         certificateService.updateCertificate(certificateDto);
     }
 
-
-    public void deleteCertificate(Long id) {
-
+@DeleteMapping("/delete/{id}")
+    public void deleteCertificate(@PathVariable Long id) {
+        certificateService.deleteCertificate(id);
     }
 
 
