@@ -24,7 +24,8 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public void updateCertificate(CertificateDto certificateDto) {
-
+        CertificateEntity certificateEntity =modelMapper.map(certificateDto,CertificateEntity.class);
+        certificateRepository.save(certificateEntity);
     }
 
     @Override
