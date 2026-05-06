@@ -8,13 +8,14 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
 @Service
 public class EnrollmentsServiceImpl implements EnrollmentsService {
 
-    final  EnrollmentsRepository enrollmentsRepository;
+    final EnrollmentsRepository enrollmentsRepository;
     final ModelMapper modelMapper;
 
     @Override
@@ -36,13 +37,19 @@ public class EnrollmentsServiceImpl implements EnrollmentsService {
 
     @Override
     public EnrollmentsDto searchByID(Long id) {
-       EnrollmentsEntity enrollmentsEntity = enrollmentsRepository.findById(id).get();
-       EnrollmentsDto enrollmentsDto=modelMapper.map(enrollmentsEntity, EnrollmentsDto.class);
-       return enrollmentsDto;
+        EnrollmentsEntity enrollmentsEntity = enrollmentsRepository.findById(id).get();
+        EnrollmentsDto enrollmentsDto = modelMapper.map(enrollmentsEntity, EnrollmentsDto.class);
+        return enrollmentsDto;
     }
 
     @Override
     public List<EnrollmentsDto> getAll() {
-        return List.of();
+        List<EnrollmentsEntity>enrollmentsEntities=enrollmentsRepository.findAll();
+        ArrayList<EnrollmentsDto>enrollmentsDtos=new ArrayList<>();
+        enrollmentsEntities.forEach(enrollmentsEntity -> {
+            EnrollmentsDto enrollmentsDto = modelMapper.map(enrollmentsEntity,EnrollmentsDto.class);
+            enrollmentsDtos.add(enrollmentsDto);
+        });
+        return enrollmentsDtos;
     }
 }
