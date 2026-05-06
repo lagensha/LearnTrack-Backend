@@ -3,10 +3,7 @@ package edu.icet.ecom.controller;
 import edu.icet.ecom.dto.CertificateDto;
 import edu.icet.ecom.service.CertificateService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -23,9 +20,9 @@ public class CertificateController{
         certificateService.addCertificate(certificateDto);
     }
 
-
-    public void updateCertificate(CertificateDto certificateDto) {
-
+@PutMapping("/update")
+    public void updateCertificate(@RequestBody CertificateDto certificateDto) {
+        certificateService.updateCertificate(certificateDto);
     }
 
 
