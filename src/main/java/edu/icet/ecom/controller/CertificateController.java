@@ -30,9 +30,9 @@ public class CertificateController{
         certificateService.deleteCertificate(id);
     }
 
-
-    public CertificateDto searchByID(Long id) {
-        return null;
+@GetMapping("/search/{id}")
+    public CertificateDto searchByID(@PathVariable Long id) {
+        return certificateService.searchByID(id);
     }
 
 
