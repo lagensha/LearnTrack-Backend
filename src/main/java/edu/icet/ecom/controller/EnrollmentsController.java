@@ -25,8 +25,9 @@ public class EnrollmentsController {
         enrollmentsService.updateEnrollment(enrollmentsDto);
     }
 
-    public void deleteEnrollment(Long id) {
-
+    @DeleteMapping("/delete/{id}")
+    public void deleteEnrollment(@PathVariable Long id) {
+        enrollmentsService.deleteEnrollment(id);
     }
 
 

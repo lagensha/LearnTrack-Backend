@@ -36,7 +36,9 @@ public class EnrollmentsServiceImpl implements EnrollmentsService {
 
     @Override
     public EnrollmentsDto searchByID(Long id) {
-        return null;
+       EnrollmentsEntity enrollmentsEntity = enrollmentsRepository.findById(id).get();
+       EnrollmentsDto enrollmentsDto=modelMapper.map(enrollmentsEntity, EnrollmentsDto.class);
+       return enrollmentsDto;
     }
 
     @Override
