@@ -30,9 +30,9 @@ public class EnrollmentsController {
         enrollmentsService.deleteEnrollment(id);
     }
 
-
-    public EnrollmentsDto searchByID(Long id) {
-        return null;
+@GetMapping("/search/{id}")
+    public EnrollmentsDto searchByID(@PathVariable Long id) {
+        return enrollmentsService.searchByID(id);
     }
 
 
