@@ -35,8 +35,8 @@ public class CertificateController{
         return certificateService.searchByID(id);
     }
 
-
+@GetMapping("/getAll")
     public List<CertificateDto> getAll() {
-        return List.of();
+        return certificateService.getAll();
     }
 }
