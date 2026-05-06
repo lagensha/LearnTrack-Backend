@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -35,11 +36,19 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public CertificateDto searchByID(Long id) {
-        return null;
+         CertificateEntity certificateEntity=certificateRepository.findById(id).get();
+            CertificateDto certificateDto=modelMapper.map(certificateEntity,CertificateDto.class);
+            return certificateDto;
     }
 
     @Override
     public List<CertificateDto> getAll() {
-        return null;
+        List<CertificateEntity> certificateEntities=certificateRepository.findAll();
+        ArrayList<CertificateDto>certificateDtos=new ArrayList<>();
+        certificateEntities.forEach(certificateEntity -> {
+            CertificateDto certificateDto=modelMapper.map(certificateEntity,CertificateDto.class);
+            certificateDtos.add(certificateDto);
+        });
+        return certificateDtos;
     }
 }
