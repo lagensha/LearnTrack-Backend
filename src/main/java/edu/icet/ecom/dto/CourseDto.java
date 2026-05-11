@@ -12,5 +12,4 @@ public class CourseDto {
     private String name;
     private String description;
     private String lectureId;
-    private String studentId;
 }
