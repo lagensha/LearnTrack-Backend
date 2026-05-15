@@ -19,5 +19,4 @@ public class CourseEntity {
     private String name;
     private String description;
     private String lectureId;
-    private String studentId;
 }
